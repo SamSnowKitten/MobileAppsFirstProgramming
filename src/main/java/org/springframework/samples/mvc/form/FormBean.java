@@ -28,22 +28,6 @@ public class FormBean {
 
 	@NotEmpty
 	private String todo;
-	// @MaskFormat("(###) ###-####")
-	// private String phone;
-	//
-	// @NumberFormat(pattern="$###,###.00")
-	// private BigDecimal currency;
-	//
-	// @NumberFormat(style=Style.PERCENT)
-	// private BigDecimal percent;
-	//
-	// private InquiryType inquiry;
-	//
-	// private String inquiryDetails;
-	//
-	// private boolean subscribeNewsletter;
-	//
-	// private Map<String, String> additionalInfo;
 
     public String getName() {
 		return name;
@@ -75,6 +59,15 @@ public class FormBean {
 
 	public void setTodo(String todo) {
 		this.todo = todo;
+	}
+
+	public FormBean copy() {
+    	FormBean another = new FormBean();
+    	another.setAge(this.age);
+    	another.setDate(this.date);
+    	another.setName(this.name);
+    	another.setTodo(this.todo);
+    	return another;
 	}
 
 	public String toString() {

@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("/form")
 @SessionAttributes("formBean")
 public class FormController {
 
 	// Invoked on every request
+	List<FormBean> formBeans = new ArrayList<>();
 
 	@ModelAttribute
 	public void ajaxAttribute(WebRequest request, Model model) {
@@ -48,6 +52,11 @@ public class FormController {
 		// Typically you would save to a db and clear the "form" attribute from the session 
 		// via SessionStatus.setCompleted(). For the demo we leave it in the session.
 		String message = "Form submitted successfully.  Bound " + formBean;
+		formBeans.add(formBean.copy());
+		System.out.println("\n\nAll beans so far\n");
+		for (FormBean fb: formBeans) {
+			System.out.println(fb);
+		}
 		// Success response handling
 		if (ajaxRequest) {
 			// prepare model for rendering success message in this request
