@@ -15,33 +15,35 @@ import org.springframework.format.annotation.NumberFormat.Style;
 import org.springframework.samples.mvc.convert.MaskFormat;
 
 public class FormBean {
-	
+
 	@NotEmpty
 	private String name;
-	
+
 	@Min(21)
 	private int age;
 
 	@DateTimeFormat(iso=ISO.DATE)
 	@Past
-	private Date birthDate;
+	private Date date;
 
-	@MaskFormat("(###) ###-####")
-	private String phone;
-
-	@NumberFormat(pattern="$###,###.00")
-	private BigDecimal currency;
-
-	@NumberFormat(style=Style.PERCENT)
-	private BigDecimal percent;
-	
-	private InquiryType inquiry;
-	
-	private String inquiryDetails;
-	
-	private boolean subscribeNewsletter;
-	
-	private Map<String, String> additionalInfo;
+	@NotEmpty
+	private String todo;
+	// @MaskFormat("(###) ###-####")
+	// private String phone;
+	//
+	// @NumberFormat(pattern="$###,###.00")
+	// private BigDecimal currency;
+	//
+	// @NumberFormat(style=Style.PERCENT)
+	// private BigDecimal percent;
+	//
+	// private InquiryType inquiry;
+	//
+	// private String inquiryDetails;
+	//
+	// private boolean subscribeNewsletter;
+	//
+	// private Map<String, String> additionalInfo;
 
     public String getName() {
 		return name;
@@ -59,68 +61,20 @@ public class FormBean {
 		this.age = age;
 	}
 
-	public Date getBirthDate() {
-		return birthDate;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setDate(Date birthDate) {
+		this.date = birthDate;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getTodo() {
+		return todo;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public BigDecimal getCurrency() {
-		return currency;
-	}
-
-	public void setCurrency(BigDecimal currency) {
-		this.currency = currency;
-	}
-
-	public BigDecimal getPercent() {
-		return percent;
-	}
-
-	public void setPercent(BigDecimal percent) {
-		this.percent = percent;
-	}
-
-	public InquiryType getInquiry() {
-		return inquiry;
-	}
-
-	public void setInquiry(InquiryType inquiry) {
-		this.inquiry = inquiry;
-	}
-
-	public String getInquiryDetails() {
-		return inquiryDetails;
-	}
-
-	public void setInquiryDetails(String inquiryDetails) {
-		this.inquiryDetails = inquiryDetails;
-	}
-
-	public boolean isSubscribeNewsletter() {
-		return subscribeNewsletter;
-	}
-
-	public void setSubscribeNewsletter(boolean subscribeNewsletter) {
-		this.subscribeNewsletter = subscribeNewsletter;
-	}
-
-	public Map<String, String> getAdditionalInfo() {
-		return additionalInfo;
-	}
-
-	public void setAdditionalInfo(Map<String, String> additionalInfo) {
-		this.additionalInfo = additionalInfo;
+	public void setTodo(String todo) {
+		this.todo = todo;
 	}
 
 	public String toString() {
@@ -132,24 +86,8 @@ public class FormBean {
         	sb.append(name).append(", ");
         }
         sb.append("age=").append(age).append(", ");
-        sb.append("birthDate=").append(birthDate).append(", ");
-        sb.append("phone=");
-        if (phone != null) {
-        	sb.append("'").append(phone).append("', ");
-        } else {
-        	sb.append(phone).append(", ");
-        }
-        sb.append("currency=").append(currency).append(", ");
-        sb.append("percent=").append(percent).append(", ");
-        sb.append("inquiry=").append(inquiry).append(", ");
-        sb.append("inquiryDetails=");
-        if (inquiryDetails != null) {
-        	sb.append("'").append(inquiryDetails).append("', ");
-        } else {
-        	sb.append(inquiryDetails).append(", ");
-        }
-        sb.append("subscribeNewsletter=").append(subscribeNewsletter).append(", ");
-        sb.append("additionalInfo=").append(additionalInfo);
+        sb.append("birthDate=").append(date).append(", ");
+        sb.append("todo=").append(todo).append(", ");
         return sb.toString();
     }
 }
