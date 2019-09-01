@@ -61,6 +61,15 @@
 				});
 			});
 		</script>
+        <h2>Responses</h2>
+        <p>
+            All of the current TODOs!
+        </p>
+        <ul>
+            <li>
+                <a id="simpleLink" class="textLink" href="<c:url value="/forms" />">GET all forms</a>
+            </li>
+        </ul>
 	</div>
 <c:if test="${!ajaxRequest}">
 </body>

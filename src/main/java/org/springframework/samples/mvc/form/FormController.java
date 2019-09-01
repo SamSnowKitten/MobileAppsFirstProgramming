@@ -6,11 +6,7 @@ import org.springframework.mvc.extensions.ajax.AjaxUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -23,7 +19,7 @@ import java.util.List;
 public class FormController {
 
 	// Invoked on every request
-	List<FormBean> formBeans = new ArrayList<>();
+	public static List<FormBean> formBeans = new ArrayList<>();
 
 	@ModelAttribute
 	public void ajaxAttribute(WebRequest request, Model model) {
@@ -39,7 +35,18 @@ public class FormController {
 	}
 	
 	@GetMapping
-	public void form() {
+	public void form() {}
+
+	@GetMapping("all")
+	public String getAllForms() {
+		return "map";
+//		StringBuilder sb = new StringBuilder();
+//		sb.append("All Current Todos!\n");
+//		for (FormBean fb: formBeans) {
+//			sb.append(fb.toString());
+//			sb.append("\n");
+//		}
+//		return sb.toString();
 	}
 
 	@PostMapping
