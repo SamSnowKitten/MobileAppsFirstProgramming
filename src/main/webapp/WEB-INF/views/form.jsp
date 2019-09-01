@@ -5,7 +5,7 @@
 <c:if test="${!ajaxRequest}">
 <html>
 <head>
-	<title>forms | mvc-showcase</title>
+	<title>I-Ping Huang and Songming Liu's 1st programming assignment</title>
 	<link href="<c:url value="/resources/form.css" />" rel="stylesheet"  type="text/css" />
 	<script type="text/javascript" src="<c:url value="/resources/jquery/1.6/jquery.js" />"></script>
 </head>
@@ -13,9 +13,6 @@
 </c:if>
 	<div id="formsContent">
 		<h2>Forms</h2>
-		<p>
-			See the <code>org.springframework.samples.mvc.form</code> package for the @Controller code
-		</p>
 		<form:form id="form" method="post" modelAttribute="formBean" cssClass="cleanform">
 			<div class="header">
 		  		<h2>Form</h2>
@@ -29,7 +26,7 @@
 		  		</s:bind>
 			</div>
 		  	<fieldset>
-		  		<legend>Personal Info</legend>
+		  		<legend>To do list</legend>
 		  		<form:label path="name">
 		  			Name <form:errors path="name" cssClass="error" />
 		 		</form:label>
@@ -50,7 +47,7 @@
 		  		</form:label>
 		  		<form:input path="todo" />
 		  	</fieldset>
-				
+
 			<p><button type="submit">Submit</button></p>
 		</form:form>
 		<script type="text/javascript">
